@@ -72,7 +72,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 		}else{
 			sResponse = dataService.getData_JEasyUI_Tree( id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -97,7 +97,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			sResponse = dataService.getData_JEasyUI_Tree_Async( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -123,7 +123,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 
@@ -149,7 +149,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -176,7 +176,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -213,7 +213,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_CBT_L3( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -240,7 +240,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_FullTree( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -265,7 +265,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_FullTree_Async(
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -290,7 +290,7 @@ public class TAuthorityInstTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_FullTree_Async(
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -326,14 +326,16 @@ public class TAuthorityInstTREEAction extends BaseAction {
 	public void setDataService(TAuthorityInstService dataService) {
 		this.dataService = dataService;
 	}
-
-	public void setsResponse(String sResponse) {
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
+	public void setSResponse(String sResponse) {
 		this.sResponse = sResponse;
 		HttpServletRequest request=ServletActionContext.getRequest();  
         ServletContext cxt=ServletActionContext.getServletContext();  
         request.setAttribute("sResponse", sResponse );
 	}
-
 	public String getSResponse() {
 		return sResponse;
 	}

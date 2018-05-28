@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONArray;
@@ -373,6 +374,7 @@ public class TAuthorityModuleEXPAction extends BaseAction  {
 				.getDefaultColumns().toString();
 		
 		System.out.println("###DefaultColumns() this.sResponse:"+this.sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -415,6 +417,7 @@ public class TAuthorityModuleEXPAction extends BaseAction  {
 //		JSONObject jsonObject = JSONObject.fromObject(swtData);
 //		this.sResponse = jsonObject.toString();
 //		System.out.println("###2 this.sResponse:"+this.sResponse);
+//		this.setSResponse(sResponse);
 //		return "sResponse";
 		
 		map.put("total", size );
@@ -512,9 +515,15 @@ public class TAuthorityModuleEXPAction extends BaseAction  {
 	public void setLoginCheck(Boolean loginCheck) {
 		this.loginCheck = loginCheck;
 	}
-	
-	public String getSResponse() {
-		return sResponse;
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
+	public void setSResponse(String sResponse) {
+		this.sResponse = sResponse;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("sResponse", sResponse );
 	}
 	
 	public Map getMap() {

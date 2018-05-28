@@ -85,7 +85,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 	public String query_JEasyUI_Treegrid(){
 //		log.debug("action............query_JEasyUI_Treegrid........");
 		sResponse = dataService.getData_JEasyUI_Treegrid();
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -109,7 +109,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		}else{
 			sResponse = dataService.getData_JEasyUI_Tree( id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -134,7 +134,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			sResponse = dataService.getData_JEasyUI_Tree_Async( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -168,7 +168,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -203,7 +203,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -229,7 +229,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 					id, false );
 		}
 //		System.out.println("this.sResponse:"+this.sResponse);
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -256,7 +256,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 					id, false );
 		}
 //		System.out.println("this.sResponse:"+this.sResponse);
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -283,7 +283,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_Dndtree( 
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -309,7 +309,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			this.sResponse = dataService.getData_JEasyUI_Dndtree(
 					id, false );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -329,7 +329,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_GubuSoft_Tree();
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -349,7 +349,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "var jsonData ="+dataService.getData_GubuSoft_Tree()+";";
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -374,7 +374,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			sResponse = "var jsonData ="+dataService.getData_GubuSoft_Tree( userinfo.getNUid() )+";";
 		}
 		
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -396,7 +396,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		sResponse = dataService.getData_YUI2_Menu();
 //		return "success2";//struts-2.5.5 not available success2   sResponse
 		super.setJson( sResponse  );
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return SUCCESS;
 	}
 	/**
@@ -418,7 +418,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		sResponse = dataService.getData_YUI2_Menubar();
 //		return "success2";//struts-2.5.5 not available  success2   sResponse
 		super.setJson( sResponse  );
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return SUCCESS;
 	}
 	/**
@@ -438,7 +438,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": " + dataService.getData_GubuSoft_Tree() + "}";
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -458,7 +458,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": " + dataService.getData_Dojo_Tree_NoRoot() + "}";
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -480,7 +480,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": [{'id':1, 'text':'湖南社保金融卡省内前置系统', 'iconcls':'icon-web', 'children':true}]}";
 //		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": "+ dataService.getData_LazyRoot( 1 ) +"}";
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -499,7 +499,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //			return "login";
 //		}
 		sResponse = "{\"identifier\": \"id\",\"label\": \"text\",\"items\": "+dataService.getData_Dojo_Tree_LazyNode( id )+"}";
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -518,7 +518,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //			return "login";
 //		}
 		sResponse = dataService.getData_Dojo_Tree_Async( id );
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -535,7 +535,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		}else{//node and node's children, jsonObject
 			sResponse = dataService.getData_Dojo_Tree_LazyNode( id );
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -557,7 +557,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_Ext3_Tree();
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -579,7 +579,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_Dojo_Tree_Async( Integer.valueOf( node ) );
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -599,7 +599,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 //		}
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 		sResponse = dataService.getData_Ext4_Tree();
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -636,14 +636,16 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 	public void setDataService(TAuthorityModuleService dataService) {
 		this.dataService = dataService;
 	}
-
-	public void setsResponse(String sResponse) {
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
+	public void setSResponse(String sResponse) {
 		this.sResponse = sResponse;
 		HttpServletRequest request=ServletActionContext.getRequest();  
         ServletContext cxt=ServletActionContext.getServletContext();  
         request.setAttribute("sResponse", sResponse );
 	}
-
 	public String getSResponse() {
 		return sResponse;
 	}

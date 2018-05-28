@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.asiainfo.authority.struts2.action.BaseAction;
 
 import person.daizhongde.virtue.constant.AbstractConstant;
@@ -49,12 +54,22 @@ public class CommonAction extends BaseAction {
 //		swtData.put("rows", dataList );
 //		JSONObject jsonObject = JSONObject.fromObject(swtData);
 //		this.sResponse = jsonObject.toString();
+//		this.setSResponse(sResponse);
 //		return "sResponse";
 //		map.put("total", size );
 //		map.put("rows", dataList );
 		return "map";
 	}
-	
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
+	public void setSResponse(String sResponse) {
+		this.sResponse = sResponse;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("sResponse", sResponse );
+	}
 	public String getSResponse() {
 		return sResponse;
 	}

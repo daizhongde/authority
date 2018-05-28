@@ -109,14 +109,16 @@ public class TAuthorityUserTREEAction extends BaseAction {
 	public void setDataService(TAuthorityUserService dataService) {
 		this.dataService = dataService;
 	}
-
-	public void setsResponse(String sResponse) {
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
+	public void setSResponse(String sResponse) {
 		this.sResponse = sResponse;
 		HttpServletRequest request=ServletActionContext.getRequest();  
         ServletContext cxt=ServletActionContext.getServletContext();  
         request.setAttribute("sResponse", sResponse );
 	}
-
 	public String getSResponse() {
 		return sResponse;
 	}

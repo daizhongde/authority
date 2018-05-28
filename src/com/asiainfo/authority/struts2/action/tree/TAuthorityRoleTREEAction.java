@@ -75,7 +75,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		}else{
 			this.sResponse = "[]";
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -101,7 +101,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		}else{
 			this.sResponse = "[]";
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -133,7 +133,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	/**
@@ -165,7 +165,7 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 		{//roleId == 0 && id ==0没有传id,is not lasy load tree
 			sResponse = "[]";
 		}
-		this.setsResponse(sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -202,8 +202,11 @@ public class TAuthorityRoleTREEAction extends BaseAction {
 	public void setDataService(TAuthorityRoleService dataService) {
 		this.dataService = dataService;
 	}
-
-	public void setsResponse(String sResponse) {
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
+	public void setSResponse(String sResponse) {
 		this.sResponse = sResponse;
 		HttpServletRequest request=ServletActionContext.getRequest();  
         ServletContext cxt=ServletActionContext.getServletContext();  

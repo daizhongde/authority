@@ -51,6 +51,10 @@ public class TAuthorityModuleCBBAction extends BaseAction {
 		log.debug("decoded jdata:" + decode.toString());
 		this.jdata = decode;
 	}
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
 	public void setSResponse(String sResponse) {
 		this.sResponse = sResponse;
 		HttpServletRequest request=ServletActionContext.getRequest();  

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import net.sf.json.JSONArray;
@@ -370,6 +371,7 @@ public class CommonEXPAction extends BaseAction  {
 				.getDefaultColumns().toString();
 		
 		System.out.println("###DefaultColumns() this.sResponse:"+this.sResponse);
+		this.setSResponse(sResponse);
 		return "sResponse";
 	}
 	
@@ -406,13 +408,6 @@ public class CommonEXPAction extends BaseAction  {
 			map.put("name_zh", (String)list.get(3) );
 			dataList.add(map);
 		}
-//		Map swtData = new HashMap(2);
-//		swtData.put("total", size );
-//		swtData.put("rows", dataList );
-//		JSONObject jsonObject = JSONObject.fromObject(swtData);
-//		this.sResponse = jsonObject.toString();
-//		System.out.println("###2 this.sResponse:"+this.sResponse);
-//		return "sResponse";
 		
 		map.put("total", size );
 		map.put("rows", dataList );
@@ -509,7 +504,16 @@ public class CommonEXPAction extends BaseAction  {
 	public void setLoginCheck(Boolean loginCheck) {
 		this.loginCheck = loginCheck;
 	}
-	
+	/**
+	 * 升级后的struts2  action属性没有放到request的Attribute中
+	 * @param sResponse
+	 */
+	public void setSResponse(String sResponse) {
+		this.sResponse = sResponse;
+		HttpServletRequest request=ServletActionContext.getRequest();  
+        ServletContext cxt=ServletActionContext.getServletContext();  
+        request.setAttribute("sResponse", sResponse );
+	}
 	public String getSResponse() {
 		return sResponse;
 	}
