@@ -196,6 +196,7 @@ public class DownloadEXPAction extends BaseAction  {
 		map.put("total", size );
 		map.put("rows", dataList );
 		System.out.println("map:"+JSONObject.fromObject(map).toString() );
+		this.setMap(map);
 		return "map";
 	}
 	

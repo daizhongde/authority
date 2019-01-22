@@ -11,6 +11,8 @@ public class TAuthorityRbrelation implements java.io.Serializable {
 	// Fields
 
 	private TAuthorityRbrelationId id;
+	private String CRule;
+	
 	private Timestamp CCtime;
 	private String CCip;
 	private String CCreator;
@@ -28,9 +30,10 @@ public class TAuthorityRbrelation implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TAuthorityRbrelation(TAuthorityRbrelationId id, Timestamp CCtime,
+	public TAuthorityRbrelation(TAuthorityRbrelationId id, String CRule, Timestamp CCtime,
 			String CCip, String CCreator) {
 		this.id = id;
+		this.CRule = CRule;
 		this.CCtime = CCtime;
 		this.CCip = CCip;
 		this.CCreator = CCreator;
@@ -44,6 +47,14 @@ public class TAuthorityRbrelation implements java.io.Serializable {
 
 	public void setId(TAuthorityRbrelationId id) {
 		this.id = id;
+	}
+
+	public String getCRule() {
+		return CRule;
+	}
+
+	public void setCRule(String cRule) {
+		CRule = cRule;
 	}
 
 	public Timestamp getCCtime() {

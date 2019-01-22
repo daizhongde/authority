@@ -58,6 +58,7 @@ public class CommonAction extends BaseAction {
 //		return "sResponse";
 //		map.put("total", size );
 //		map.put("rows", dataList );
+		this.setMap(map);
 		return "map";
 	}
 	/**

@@ -15,6 +15,7 @@
 SELECT 
   t1.N_RID "n_rid",
   t1.N_BID "n_bid",
+  t1.C_RULE "c_rule",
   t1.C_CTIME "c_ctime",
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
@@ -52,6 +53,7 @@ WHERE t1.n_mid = :n_mid
 SELECT 
   t1.N_RID "n_rid",
   t1.N_BID "n_bid",
+  t1.C_RULE "c_rule",
   t1.C_CTIME "c_ctime",
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 
@@ -79,6 +81,7 @@ select t1.N_LID       "id",
 SELECT 
   t1.N_RID "n_rid",
   t1.N_BID "n_bid",
+  t1.C_RULE "c_rule",
   t1.C_CTIME "c_ctime",
   t1.C_CIP "c_cip",
   t1.C_CREATOR "c_creator" 

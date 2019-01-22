@@ -20,7 +20,7 @@ import com.opensymphony.xwork2.ActionContext;
 /**
  * 模块信息菜单树数据
  * <br>get tree json data 
- * @author dzd
+ * @author dzd 20141101
  *
  */
 public class TAuthorityModuleTREEAction extends BaseAction {
@@ -70,6 +70,7 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 			}
 			map.put( "success", Boolean.FALSE );
 			map.put( "msg", e2.getLocalizedMessage() );
+			this.setMap(map);
 			return "map";
 		}
 		map.put( "success", Boolean.TRUE );
@@ -157,7 +158,6 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		//roleId==0 is no roleId parameter in the post
 		if( roleId == 0 && id ==0 )
 		{
-//			sResponse = dataService.getData_JEasyUI_Tree( 1, true );
 			sResponse = dataService.getData_JEasyUI_CheckBoxTree_ExceptDev( 1, 0 );
 		}
 		else if( roleId != 0 && id ==0 )
@@ -192,7 +192,6 @@ public class TAuthorityModuleTREEAction extends BaseAction {
 		//roleId==0 is no roleId parameter in the post
 		if( roleId == 0 && id ==0 )
 		{
-//			sResponse = dataService.getData_JEasyUI_Tree_ExceptDev( 1, true );
 			sResponse = dataService.getData_JEasyUI_CheckBoxTree_ExceptDev( 1, roleId );
 		}
 		else if( roleId != 0 && id ==0 )

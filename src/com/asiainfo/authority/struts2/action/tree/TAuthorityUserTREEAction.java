@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionContext;
 /**
  * 模块信息菜单树数据
  * <br>get tree json data 
- * @author dzd
+ * @author dzd 20141101
  *
  */
 public class TAuthorityUserTREEAction extends BaseAction {

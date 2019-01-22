@@ -358,6 +358,7 @@ public class CommonEXPAction extends BaseAction  {
 		map.put("total", size );
 		map.put("rows", dataList );
 		System.out.println("map:"+JSONObject.fromObject(map).toString() );
+		this.setMap(map);
 		return "map";
 	}
 	
@@ -412,6 +413,7 @@ public class CommonEXPAction extends BaseAction  {
 		map.put("total", size );
 		map.put("rows", dataList );
 		System.out.println("map:"+JSONObject.fromObject(map).toString() );
+		this.setMap(map);
 		return "map";
 	}
 
@@ -440,6 +442,7 @@ public class CommonEXPAction extends BaseAction  {
 //		}
 //		map.put( "progress", p.getProgress() );
 //		map.put( "msg", p.getMsg() );
+		this.setMap(map);
 		return "map";
 	}
 

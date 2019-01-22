@@ -43,6 +43,7 @@ FROM
 SELECT 
   IF(t2.n_bid IS NULL, 'N', 'Y') AS "checked",
   t1.n_bid "NBid",
+  t2.c_rule "CRule",
   t1.c_bcode "CBcode",
   t1.c_bname "CBname",
   t1.url "url",

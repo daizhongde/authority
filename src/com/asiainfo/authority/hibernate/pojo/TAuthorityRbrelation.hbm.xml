@@ -19,6 +19,11 @@
                 <comment>挂接时间</comment>
             </column>
         </property>
+        <property name="CRule" type="java.lang.String">
+            <column name="C_RULE" length="1024">
+                <comment>权限规则sql</comment>
+            </column>
+        </property>
         <property name="CCip" type="java.lang.String">
             <column name="C_CIP" length="60">
                 <comment>挂接者所使用的IP</comment>

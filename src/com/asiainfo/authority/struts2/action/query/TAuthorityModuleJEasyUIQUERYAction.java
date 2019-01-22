@@ -47,6 +47,13 @@ public class TAuthorityModuleJEasyUIQUERYAction extends BaseAction {
 	 * @return
 	 */
 	public String dfind() {
+//		try {
+//			Thread.currentThread().sleep(5*1000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}//毫秒   
+		
 		int pageSize = Integer.parseInt(rows==null?"0":rows.get(0).toString());// pageSize
 		int offset = (page - 1) * pageSize;// 第一条记录的索引,offset begin from 0, page begin from 1
 		// 当jdata.condition为空 没有where条件
