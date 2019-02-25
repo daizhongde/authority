@@ -17,8 +17,9 @@ import person.daizhongde.authority.hibernate.pojo.TAuthorityUser;
 import person.daizhongde.authority.listener.OnLine;
 import person.daizhongde.authority.spring.service.impl.TAuthorityRoleServiceImpl;
 import person.daizhongde.authority.spring.service.impl.TAuthorityUserServiceImpl;
-
+import person.daizhongde.virtue.assemble.sql.SQLAssembleQ;
 import person.daizhongde.virtue.codec.PasswordUtil;
+import person.daizhongde.virtue.constant.Lic;
 
 public class LoginServlet extends HttpServlet  {
 
@@ -126,6 +127,7 @@ public class LoginServlet extends HttpServlet  {
 			
 //			System.out.println("登陆成功："+user.getCUname()+"<"+user.getCUlogname()+">");
 //			response.sendRedirect("Webmain/main.html");
+			SQLAssembleQ.check(String.valueOf( Lic.getYear()));
 			response.sendRedirect( SessionConstants.WELCOME_PAGE );
 		}
 	}
