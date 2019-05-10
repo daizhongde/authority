@@ -144,7 +144,12 @@ public class TAuthorityInstTREEAction extends BaseAction {
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 //		System.out.println("id:"+id);
 		if( id == 0 ){
-			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 1, true );
+			try{
+				this.sResponse = dataService.getData_JEasyUI_CBT_Async( 1, true );
+			}catch(Exception e){
+				System.out.println("error! go copote dealing....instID:8020083.....");
+				this.sResponse = dataService.getData_JEasyUI_CBT_Async( 8020083, true );
+			}
 		}else{
 			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 
 					id, false );
