@@ -80,6 +80,11 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 		return JSONArray.fromObject(dataDAO.sqlQuerylistAllByMap( sqlA.getSQL(), sqlA.getMap() )).toString();
 		
 	}
+	public String getCip(SQLAssembleQ asQ){ 
+		
+		return dataDAO.sqlQueryfindaValueByMap( asQ.getSQL(), asQ.getMap() ).toString();
+		
+	}
 	public String getCBBDataInArray_Id(String jdata){
 		JSONObject jsonObject = JSONObject.fromObject(jdata);
 		AbstractConstant absConstant = new AuthorityUser();

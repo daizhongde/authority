@@ -109,7 +109,8 @@ select t1.N_UID       "id",
        t1.C_USEX      "sex",
        t1.C_LOGINS    "logins"
   from tool.t_authority_user t1
- where n_did=27451
+-- where n_did=27451
+ where n_did= :did
  order by C_LOGINS desc, C_ULOGNAME asc
   
   

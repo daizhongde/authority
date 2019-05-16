@@ -1,6 +1,7 @@
 package person.daizhongde.authority.struts2.action.curd;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -129,7 +130,7 @@ public class TAuthorityUserCURDAction extends BaseAction {
 		return SUCCESS;
 	}
 	/**
-	 * This is not effective.
+	 * This is  effective.
 	 * @return
 	 */
 	public String modifyPWD(){
@@ -143,6 +144,51 @@ public class TAuthorityUserCURDAction extends BaseAction {
 			json.put("condition", cond);
 						
 			i = dataService.modifyPWD( json.toString() );
+		}catch(Exception e){
+			e.printStackTrace();
+			Throwable e2 = e;
+			while(e2.getCause() != null ){
+				e2 = e2.getCause();
+			}
+			this.success = Boolean.FALSE;
+			this.msg = e2.getLocalizedMessage();
+			return SUCCESS;
+		}
+		this.success = Boolean.TRUE;
+		this.msg = "更新成功！";
+		return SUCCESS;
+	}
+	/**
+	 * This is  effective.
+	 * <p>
+	 *   和modify方法一样的效果
+	 *   区别：modify需要传id条件
+	 * @return
+	 */
+	public String modifyEMAILPWD(){
+		int i = 0;//update row count
+		try{
+			//@return The number of entities updated or deleted or insert.
+			JSONObject json = JSONObject.fromObject( jdata );
+			
+			Map cond = json.getJSONObject("condition");
+			Map data = json.getJSONObject("data");
+			String pwd = String.valueOf( data.get("cip") );
+			//加密
+			String msg = Base64.getEncoder().encodeToString(pwd.getBytes());
+//			System.out.println("加密：" + msg);
+			//反转
+			StringBuffer sb = new StringBuffer(msg);
+			sb = sb.reverse();
+			String reve=sb.toString();
+//	        System.out.println("反转:"+reve);
+			data.put("cip", reve);
+			json.put("data", data);
+			
+			cond.put("id", super.getLoginUser().getNUid() );
+			json.put("condition", cond);
+			
+			i = dataService.modify(json.toString());
 		}catch(Exception e){
 			e.printStackTrace();
 			Throwable e2 = e;

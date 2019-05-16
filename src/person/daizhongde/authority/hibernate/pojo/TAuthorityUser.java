@@ -17,9 +17,10 @@ public class TAuthorityUser implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 5157744434707155887L;
 	private Integer NUid;
+	/** 其实是通过部门ID关联查询得到的 */
 	private TAuthorityInst TAuthorityInst;
 	private Integer NIid;
-//	private Integer NDid;
+//	private Integer NDid;// 需要加上
 	private String CUlogname;
 	private String CUname;
 	private String CUpassword;

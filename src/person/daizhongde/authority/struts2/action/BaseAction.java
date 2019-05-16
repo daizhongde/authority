@@ -60,6 +60,10 @@ public class BaseAction extends ActionSupport implements Action{
 	protected String error;
 	/** 用户ID */
 	private Integer userId;
+	/** dept. ID */
+	private Integer deptId;;
+	/** inst. ID */
+	private Integer instId;
 	/** 用户登陆名 */
 	private String userlogname;
 	/** 用户名 */
@@ -85,6 +89,14 @@ public class BaseAction extends ActionSupport implements Action{
 		this.userlogname = userlogname;
 	}
 
+	public Integer getDeptId() {
+		TAuthorityUser user = (TAuthorityUser)getSession(false).getAttribute( SessionConstants.LOGIN_USER );
+		return user.getNIid();
+	}
+
+	public void setDeptId(Integer deptId) {
+		this.deptId = deptId;
+	}
 	/**
 	 * getLoginUser:(从上下文中获取 登录用户). <br/>
 	 * @author d144574
@@ -126,6 +138,14 @@ public class BaseAction extends ActionSupport implements Action{
 
 	public void setError(String error) {
 		this.error = error;
+	}
+
+	public Integer getInstId() {
+		return instId;
+	}
+
+	public void setInstId(Integer instId) {
+		this.instId = instId;
 	}
 
 	public void setUsername(String username) {

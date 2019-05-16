@@ -2,9 +2,12 @@ package person.daizhongde.authority.struts2.action.query;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
 
 import person.daizhongde.authority.constant.AuthorityUser;
 import person.daizhongde.authority.spring.service.TAuthorityUserService;
@@ -32,6 +35,7 @@ public class TAuthorityUserJEasyUIQUERYAction extends BaseAction {
 	private List rows;// pageSize->results
 
 	private long online;
+	private String json;
 	
 	/** 页号 **/
 	protected int page;// pageNumber
@@ -200,6 +204,11 @@ public class TAuthorityUserJEasyUIQUERYAction extends BaseAction {
 				sort.add(map);
 			}
 		}
+
+		/** 给sql文件中的静态sql参数赋值  */
+		Map param = new HashMap(1);
+		/** 因为用户pojo中的inst成员是通过dept字段关联查询的     */
+		param.put("did", super.getLoginUser().getTAuthorityInst().getNIid() );
 		
 		SQLAssembleQ sqlA = new SQLAssembleQ(
 				absConstant.getSQLDOC(),
@@ -212,6 +221,7 @@ public class TAuthorityUserJEasyUIQUERYAction extends BaseAction {
 				absConstant.getFront2col(),
 				sort
 			);
+		sqlA.setMap(param);
 		
 		if( jsonObject.containsKey("act") && jsonObject.getString("act").equalsIgnoreCase("noquery") ){
 			total = 0;
@@ -321,6 +331,44 @@ public class TAuthorityUserJEasyUIQUERYAction extends BaseAction {
 		total = dataService.getTotal(sqlA);
 		return SUCCESS;
 	}
+	/**
+	 * 查询用户总数
+	 * 
+	 * @return
+	 */
+	public String dfindCip() {
+		// 当jdata.condition为空 没有where条件
+		// 在这里读配置文件sql并组装sql的where条件
+		int cip = super.getUserId();
+		
+		JSONObject jsonObject = JSONObject.fromObject("{act:\"query\",condition:{},operator:{}}");
+		AbstractConstant absConstant = new AuthorityUser();
+
+		SQLAssembleQ sqlA = new SQLAssembleQ(
+				absConstant.getSQLDOC(),
+				"SELECT c_ucip FROM t_authority_user WHERE n_uid="+cip,
+				jsonObject.getJSONObject("condition"), 
+				jsonObject.getJSONObject("operator"),
+				absConstant.getColumnTypes(),
+				absConstant.getFront2col()
+			);
+		
+		json = dataService.getCip(sqlA);
+		if( StringUtils.isNotBlank( json ) ){
+			//反转
+			StringBuffer sb = new StringBuffer(json);
+			sb = sb.reverse();
+			String reve=sb.toString();
+//		     System.out.println("反转:"+reve);
+		    //解密
+			byte[] byteArr = Base64.getDecoder().decode(reve);
+			json = new String(byteArr);
+//			System.out.println("解密:" + emailpwd);
+		}else{
+			json="";
+		}
+		return "json";
+	}
 
 	public void validate() {
 //		if (jdata.length() == 0) {
@@ -389,4 +437,11 @@ public class TAuthorityUserJEasyUIQUERYAction extends BaseAction {
 	public void setOnline(long online) {
 		this.online = online;
 	}
+	public String getJson() {
+		return json;
+	}
+	public void setJson(String json) {
+		this.json = json;
+	}
+	
 }

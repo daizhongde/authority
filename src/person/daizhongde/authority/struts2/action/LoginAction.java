@@ -13,9 +13,9 @@ import person.daizhongde.authority.spring.service.TAuthorityUserService;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
- * @author  yeeku.H.lee kongyeeku@163.com
+ * @author dand dzd2746679@163.com
  * @version  1.0
- * <br>Copyright (C), 2005-2008, yeeku.H.Lee
+ * <br>Copyright (C), 2005-2008, dand
  * <br>This program is protected by copyright laws.
  * <br>Program Name:
  * <br>Date: 

@@ -1,7 +1,7 @@
 package person.daizhongde.authority.spring.service;
 
 import person.daizhongde.authority.hibernate.pojo.TAuthorityUser;
-
+import person.daizhongde.virtue.assemble.sql.SQLAssembleQ;
 import person.daizhongde.virtue.spring.BaseService;
 
 public interface TAuthorityUserService extends BaseService{
@@ -12,6 +12,7 @@ public interface TAuthorityUserService extends BaseService{
 	 * @return json
 	 */
 	public abstract String getCBBData_Id(String jdata);
+	public abstract String getCip(SQLAssembleQ asQ);
 	/**
 	 * generate array for combobox  
 	 * <br>getCBBData_XXX  XXX: field name
