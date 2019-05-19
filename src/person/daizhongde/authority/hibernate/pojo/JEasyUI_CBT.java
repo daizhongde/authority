@@ -17,17 +17,17 @@ public class JEasyUI_CBT implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 8166229424880625080L;
-	private Integer id;
+	private Long id;
 	private String text;
 	/** closed, open.  default is 'open'  **/
 	private String state;//add by daizhongde,date:2013/10/12
 	private String iconCls;
 
 	private List children = new LinkedList();
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getText() {

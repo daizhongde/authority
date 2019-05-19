@@ -302,8 +302,8 @@ public class TAuthorityFuncServiceImpl implements TAuthorityFuncService {
 		
 		return (TAuthorityFunc)dataDAO.listAllByMap( "from TAuthorityFunc t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityFunc browsePOJOById(int id) {
-		return dataDAO.findById( new Integer(id).shortValue()  );
+	public TAuthorityFunc browsePOJOById(long id) {
+		return dataDAO.findById( new Long(id).shortValue()  );
 	}
 	public TAuthorityFunc browsePOJOById(String id) {
 		return dataDAO.findById( new Integer(id).shortValue() );

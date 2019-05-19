@@ -16,7 +16,7 @@ public interface TAuthorityRoleDAO extends SpringHibernateDao{
 	public static final String _CRCREATOR = "CRcreator";
 	public static final String _CRONS = "CRons";
 	
-	public abstract List<TAuthorityRole> findByUserId(Integer userId);
+	public abstract List<TAuthorityRole> findByUserId(Long userId);
 	
 	public abstract List findAllWithOrder();
 	/**

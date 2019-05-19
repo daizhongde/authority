@@ -65,7 +65,7 @@ public class TAuthorityRmrelationDAOImpl extends SpringHibernateDaoSupport imple
 	/**
 	 * @deprecated
 	 */
-	public List findUserButton4tb(Integer moduleId, Integer userId  ){
+	public List findUserButton4tb(Integer moduleId, Long userId  ){
 		Map condition = new HashMap();
 		condition.put("n_mid", moduleId);
 		condition.put("n_uid", userId);

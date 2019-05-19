@@ -30,7 +30,7 @@ public class TAuthorityRmrelationCURDAction extends BaseAction {
 	
 	private Boolean success;// 只有private的变量(并且定义get方法)json插件才能返回
 	private String msg;
-	private Integer id;
+	private int id;
 	
 	protected Map map = new HashMap();
 	protected Object[] arr;

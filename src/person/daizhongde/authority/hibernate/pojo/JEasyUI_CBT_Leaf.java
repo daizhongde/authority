@@ -17,16 +17,16 @@ public class JEasyUI_CBT_Leaf implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -5490135395716545037L;
-	private Integer id;
+	private Long id;
 	private String text;
 	/** closed, open.  default is 'open'  **/
 	private String state;//add by daizhongde,date:2013/10/12
 	private String iconCls;
 	
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getText() {

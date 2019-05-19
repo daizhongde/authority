@@ -320,7 +320,7 @@ public class TAuthorityUrrelationServiceImpl implements TAuthorityUrrelationServ
 		
 		return (TAuthorityUrrelation)dataDAO.listAllByMap( "from TAuthorityUrrelation t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityUrrelation browsePOJOById(int id) {
+	public TAuthorityUrrelation browsePOJOById(long id) {
 //		return dataDAO.findById((short)id);
 		return null;
 	}

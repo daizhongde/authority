@@ -339,14 +339,14 @@ public class TAuthorityUserJEasyUIQUERYAction extends BaseAction {
 	public String dfindCip() {
 		// 当jdata.condition为空 没有where条件
 		// 在这里读配置文件sql并组装sql的where条件
-		int cip = super.getUserId();
+		long userid = super.getUserId();
 		
 		JSONObject jsonObject = JSONObject.fromObject("{act:\"query\",condition:{},operator:{}}");
 		AbstractConstant absConstant = new AuthorityUser();
 
 		SQLAssembleQ sqlA = new SQLAssembleQ(
 				absConstant.getSQLDOC(),
-				"SELECT c_ucip FROM t_authority_user WHERE n_uid="+cip,
+				"SELECT c_ucip FROM t_authority_user WHERE n_uid="+userid,
 				jsonObject.getJSONObject("condition"), 
 				jsonObject.getJSONObject("operator"),
 				absConstant.getColumnTypes(),

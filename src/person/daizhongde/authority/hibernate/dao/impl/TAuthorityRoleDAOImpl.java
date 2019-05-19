@@ -32,7 +32,7 @@ public class TAuthorityRoleDAOImpl extends SpringHibernateDaoSupport implements 
 		// do nothing
 	}
 
-	public List<TAuthorityRole> findByUserId(Integer userId){
+	public List<TAuthorityRole> findByUserId(Long userId){
 		log.debug("findByUserId, find special user's TAuthorityRole instances");
 		
 		Map map = new HashMap(1);

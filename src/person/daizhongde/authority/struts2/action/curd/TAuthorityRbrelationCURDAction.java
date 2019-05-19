@@ -150,7 +150,7 @@ public class TAuthorityRbrelationCURDAction extends BaseAction {
 	 * @return
 	 */
 	public String findUserButton4tb2(){
-		int i = 0;//delete count
+		long i = 0;//delete count
 		try{
 			//@return The number of entities updated or deleted or insert.
 			this.setJson( dataService.findUserButton4tb2( id, this.getUserId() ) );

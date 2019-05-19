@@ -12,7 +12,7 @@ public class ActionUtil {
 		return ServletActionContext.getRequest().getSession(create);
 	}
 	
-	public Integer getUserId() {
+	public Long getUserId() {
 		TAuthorityUser user = (TAuthorityUser)getSession(false).getAttribute( SessionConstants.LOGIN_USER );
 		return user.getNUid();
 	}

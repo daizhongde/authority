@@ -35,7 +35,7 @@ public class TAuthorityUserTREEAction extends BaseAction {
 	private String _dc;
 	
 	/** lazy load YUI2, JEasyUI, dnd node source, remove node id **/
-	private int id;//lazy load parameter
+	private long id;//lazy load parameter
 //	private int flag;//lazy load parameter
 	
 	private String jdata;
@@ -68,7 +68,7 @@ public class TAuthorityUserTREEAction extends BaseAction {
 //		System.out.println("id:"+userinfo.getNUid()+" name:"+userinfo.getCUname());
 //		System.out.println("id:"+id);
 		if( id == 0 ){
-			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 1, true );
+			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 1L, true );
 		}else{
 			this.sResponse = dataService.getData_JEasyUI_CBT_Async( 
 					id, false );

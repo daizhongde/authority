@@ -316,8 +316,8 @@ public class TAuthorityButtonServiceImpl implements TAuthorityButtonService {
 		
 		return (TAuthorityButton)dataDAO.listAllByMap( "from TAuthorityButton t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityButton browsePOJOById(int id) {
-		return dataDAO.findById( new Integer(id)  );
+	public TAuthorityButton browsePOJOById(long id) {
+		return dataDAO.findById( new Long(id).intValue()  );
 	}
 	public TAuthorityButton browsePOJOById(String id) {
 		return dataDAO.findById( new Integer(id) );

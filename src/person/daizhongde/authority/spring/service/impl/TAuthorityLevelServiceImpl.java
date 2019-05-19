@@ -319,8 +319,8 @@ public class TAuthorityLevelServiceImpl implements TAuthorityLevelService {
 		
 		return (TAuthorityLevel)dataDAO.listAllByMap( "from TAuthorityLevel t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityLevel browsePOJOById(int id) {
-		return dataDAO.findById( new Short( new Integer(id).shortValue())  );
+	public TAuthorityLevel browsePOJOById(long id) {
+		return dataDAO.findById( new Short( new Long(id).shortValue())  );
 	}
 	public TAuthorityLevel browsePOJOById(String id) {
 		return dataDAO.findById( new Short( new Integer(id).shortValue())  );

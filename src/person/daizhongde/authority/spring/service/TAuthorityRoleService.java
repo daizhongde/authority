@@ -13,7 +13,7 @@ public interface TAuthorityRoleService extends BaseService{
 	 * @param userId
 	 * @return
 	 */
-	public abstract List<TAuthorityRole> findRoleByUserId(Integer userId );
+	public abstract List<TAuthorityRole> findRoleByUserId(Long userId );
 	/**
 	 * generate jsondata InMap for combobox
 	 * <br>getCBBData_XXX  XXX: field name

@@ -16,7 +16,7 @@ public class TAuthorityUser implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 5157744434707155887L;
-	private Integer NUid;
+	private Long NUid;
 	/** 其实是通过部门ID关联查询得到的 */
 	private TAuthorityInst TAuthorityInst;
 	private Integer NIid;
@@ -27,7 +27,7 @@ public class TAuthorityUser implements java.io.Serializable {
 	private String CUsex;
 	
 	private String EmployeeNumber;
-	private Integer SupervisorId;
+	private Long SupervisorId;
 	
 	/** 下面的两个成员和get方法是为了在用户修改页面不报错 <p>
 	 * ${pojo.EmployeeNumber } 报错  
@@ -42,7 +42,7 @@ public class TAuthorityUser implements java.io.Serializable {
 		return EmployeeNumber;
 	}
 
-	public Integer getSUpervisorId() {
+	public Long getSUpervisorId() {
 		return SupervisorId;
 	}
 
@@ -83,7 +83,7 @@ public class TAuthorityUser implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public TAuthorityUser(Integer NUid, TAuthorityInst TAuthorityInst,
+	public TAuthorityUser(Long NUid, TAuthorityInst TAuthorityInst,
 			String CUlogname, String CUname, String CUpassword, String CUsex,
 			String EmployeeNumber,
 			Date CUctime) {
@@ -98,9 +98,9 @@ public class TAuthorityUser implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TAuthorityUser(Integer NUid, TAuthorityInst TAuthorityInst,
+	public TAuthorityUser(Long NUid, TAuthorityInst TAuthorityInst,
 			String CUlogname, String CUname, String CUpassword, String CUsex,
-			String EmployeeNumber,Integer SupervisorId,
+			String EmployeeNumber,Long SupervisorId,
 			String CUphone, String CUemail, String CUqq, String CUaddr,String CUnote,
 			String CUtel, String CUfax, Integer NIid, Date CUctime,
 			String CUcip, String CUcreator, Date CUmtime, String CUmip,
@@ -140,11 +140,11 @@ public class TAuthorityUser implements java.io.Serializable {
 
 	// Property accessors
 
-	public Integer getNUid() {
+	public Long getNUid() {
 		return this.NUid;
 	}
 
-	public void setNUid(Integer NUid) {
+	public void setNUid(Long NUid) {
 		this.NUid = NUid;
 	}
 
@@ -196,11 +196,11 @@ public class TAuthorityUser implements java.io.Serializable {
 		EmployeeNumber = employeeNumber;
 	}
 
-	public Integer getSupervisorId() {
+	public Long getSupervisorId() {
 		return SupervisorId;
 	}
 
-	public void setSupervisorId(Integer supervisorId) {
+	public void setSupervisorId(Long supervisorId) {
 		SupervisorId = supervisorId;
 	}
 

@@ -21,7 +21,7 @@ public interface TAuthorityRmrelationDAO extends SpringHibernateDao {
  * @param userId
  * @return
  */
-	public abstract List findUserButton4tb(Integer moduleId, Integer userId  );
+	public abstract List findUserButton4tb(Integer moduleId, Long userId  );
 	
 	public abstract TAuthorityRmrelation findById(
 			person.daizhongde.authority.hibernate.pojo.TAuthorityRmrelationId id);

@@ -12,12 +12,12 @@ public interface TAuthorityRbrelationService extends BaseService{
 	 * @param userId
 	 * @return 返回值是纵向的值，和db的记录结构一致
 	 */
-	public abstract List findUserButton4tb(Integer moduleId, Integer userId  );
+	public abstract List findUserButton4tb(Integer moduleId, Long userId  );
 	/**
 	 * 
 	 * @param moduleId
 	 * @param userId
 	 * @return 返回值是横向的值，和使用rmrel实现按钮权限的数据结构一致
 	 */
-	public abstract Map findUserButton4tb2(Integer moduleId, Integer userId  );
+	public abstract Map findUserButton4tb2(Integer moduleId, Long userId  );
 }

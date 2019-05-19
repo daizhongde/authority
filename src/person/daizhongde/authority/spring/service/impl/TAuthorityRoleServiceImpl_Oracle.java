@@ -46,7 +46,7 @@ public class TAuthorityRoleServiceImpl_Oracle implements TAuthorityRoleService {
 
 	private TreeDataUtil_Role mdUtil = new TreeDataUtil_Role();
 	
-	public List<TAuthorityRole> findRoleByUserId(Integer userId ){
+	public List<TAuthorityRole> findRoleByUserId(Long userId ){
 		return dataDAO.findByUserId(userId);
 	}
 	
@@ -567,7 +567,7 @@ public class TAuthorityRoleServiceImpl_Oracle implements TAuthorityRoleService {
 		
 		return (TAuthorityRole)dataDAO.listAllByMap( "from TAuthorityRole t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityRole browsePOJOById(int id) {
+	public TAuthorityRole browsePOJOById(long id) {
 		return dataDAO.findById((short)id);
 	}
 	public TAuthorityRole browsePOJOById(String id) {

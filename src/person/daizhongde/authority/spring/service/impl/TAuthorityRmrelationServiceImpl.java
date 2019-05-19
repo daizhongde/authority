@@ -37,7 +37,7 @@ public class TAuthorityRmrelationServiceImpl implements TAuthorityRmrelationServ
 	/**
 	 * @deprecated
 	 */
-	public List findUserButton4tb(Integer moduleId, Integer userId  ){
+	public List findUserButton4tb(Integer moduleId, Long userId  ){
 		return dataDAO.findUserButton4tb(moduleId, userId);
 	}
 	public String getCBBData_Id(String jdata){
@@ -326,7 +326,7 @@ public class TAuthorityRmrelationServiceImpl implements TAuthorityRmrelationServ
 		
 		return (TAuthorityRmrelation)dataDAO.listAllByMap( "from TAuthorityRmrelation t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityRmrelation browsePOJOById(int id) {
+	public TAuthorityRmrelation browsePOJOById(long id) {
 //		return dataDAO.findById((short)id);
 		return null;
 	}

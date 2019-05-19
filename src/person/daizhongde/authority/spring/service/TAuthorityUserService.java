@@ -30,15 +30,15 @@ public interface TAuthorityUserService extends BaseService{
 	 * @param moduleid
 	 * @return
 	 */
-	public abstract String getData_JEasyUI_CBT_Async( Integer moduleid, boolean WithRoot );
+	public abstract String getData_JEasyUI_CBT_Async( Long moduleid, boolean WithRoot );
 	
 	
 	/** U  **/
 	public abstract int modifyPWD( String jdata ) throws Exception;
 	
-	public abstract TAuthorityUser findById( int id );
+	public abstract TAuthorityUser findById( Long id );
 	public abstract TAuthorityUser findByLogname( String logname );
 	public abstract long getOnlineCount();
 	
-	public abstract void updateLogState( String state, Integer N_UID, String ip );
+	public abstract void updateLogState( String state, Long N_UID, String ip );
 }

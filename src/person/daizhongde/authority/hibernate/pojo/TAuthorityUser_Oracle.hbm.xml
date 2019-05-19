@@ -9,7 +9,7 @@
 <hibernate-mapping>
     <class name="person.daizhongde.authority.hibernate.pojo.TAuthorityUser" table="t_authority_user" schema="tool"
 		dynamic-insert="true" dynamic-update="true" >
-        <id name="NUid" type="java.lang.Integer">
+        <id name="NUid" type="java.lang.Long">
             <column name="N_UID" precision="8" scale="0" />
             <generator class="assigned" />
         </id>
@@ -31,8 +31,8 @@
         <property name="EmployeeNumber" type="java.lang.String">
             <column name="EMPLOYEE_NUMBER" length="10" not-null="true" />
         </property>
-        <property name="SupervisorId" type="java.lang.Integer">
-            <column name="SUPERVISOR_ID" precision="8" scale="0"/>
+        <property name="SupervisorId" type="java.lang.Long">
+            <column name="SUPERVISOR_ID" precision="10" scale="0"/>
         </property>
         <property name="CUphone" type="java.lang.String">
             <column name="C_UPHONE" length="15" />

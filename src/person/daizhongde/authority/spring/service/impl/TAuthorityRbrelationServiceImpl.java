@@ -36,11 +36,10 @@ public class TAuthorityRbrelationServiceImpl implements TAuthorityRbrelationServ
 	
 	private TAuthorityRbrelationDAO dataDAO;
 
-	public List findUserButton4tb(Integer moduleId, Integer userId  ){
-		dataDAO.findUserButton4tb(moduleId, userId);
+	public List findUserButton4tb(Integer moduleId, Long userId  ){
 		return dataDAO.findUserButton4tb(moduleId, userId);
 	}
-	public Map findUserButton4tb2(Integer moduleId, Integer userId  ){
+	public Map findUserButton4tb2(Integer moduleId, Long userId  ){
 		List list = dataDAO.findUserButton4tb(moduleId, userId);
 		Map map = new HashMap();
 		map = List2Map.toMap(list, "CBcode", "checked");
@@ -332,7 +331,7 @@ public class TAuthorityRbrelationServiceImpl implements TAuthorityRbrelationServ
 		
 		return (TAuthorityRbrelation)dataDAO.listAllByMap( "from TAuthorityRbrelation t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityRbrelation browsePOJOById(int id) {
+	public TAuthorityRbrelation browsePOJOById(long id) {
 //		return dataDAO.findById((short)id);
 		return null;
 	}

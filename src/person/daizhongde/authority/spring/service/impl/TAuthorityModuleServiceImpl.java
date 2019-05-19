@@ -655,7 +655,7 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 				level9ModuleList,	level10ModuleList);
 		
 		JEasyUI_CBT mJEU = new JEasyUI_CBT();
-		mJEU.setId(rootModule.getNMid());
+		mJEU.setId(new Long(rootModule.getNMid()));
 		mJEU.setText(rootModule.getCMname());
 		mJEU.setState( rootModule.getCMexpanded().trim().equalsIgnoreCase("true") ? "open" : "closed" );//add by daizhongde,date:2013/10/12
 		mJEU.setIconCls(rootModule.getCMiconcls());
@@ -757,7 +757,7 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 		attr1.put("url", rootModule.getCMpath());
 		
 		JEasyUI_CBT mJEU = new JEasyUI_CBT();
-		mJEU.setId(rootModule.getNMid());
+		mJEU.setId(new Long(rootModule.getNMid()));
 		mJEU.setText(rootModule.getCMname());
 		mJEU.setState( rootModule.getCMexpanded().trim().equalsIgnoreCase("true") ? "open" : "closed" );//add by daizhongde,date:2013/10/12
 		mJEU.setIconCls(rootModule.getCMiconcls());
@@ -793,7 +793,7 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 		mdUtil.assembleData_JEasyUI_CBT_Async( dataList, moduleList );
 		
 		JEasyUI_CBT mJEU = new JEasyUI_CBT();
-		mJEU.setId(rootModule.getNMid());
+		mJEU.setId(new Long(rootModule.getNMid()));
 		mJEU.setText(rootModule.getCMname());
 		mJEU.setState( rootModule.getCMexpanded().trim().equalsIgnoreCase("true") ? "open" : "closed" );//add by daizhongde,date:2013/10/12
 		mJEU.setIconCls(rootModule.getCMiconcls());
@@ -1269,7 +1269,7 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public String getData_GubuSoft_Tree(Integer userId){
+	public String getData_GubuSoft_Tree(Long userId){
 //		log.debug("service..........getData_GubuSoft_Tree...........");
 		List dataList = new ArrayList();//Root's children
 		
@@ -1355,7 +1355,7 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 		return jsonArray.toString();
 	}
 	@SuppressWarnings("unchecked")
-	public String getData_GubuSoft_Tree(Integer userId, String logname ){
+	public String getData_GubuSoft_Tree(Long userId, String logname ){
 		//如果是dev用户，直接查询出所有菜单并组装成树数据返回
 		if(logname.equalsIgnoreCase("dev")){
 			return getData_GubuSoft_Tree();
@@ -2047,8 +2047,8 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 		
 		return (TAuthorityModule)dataDAO.listAllByMap( "from TAuthorityModule t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityModule browsePOJOById( int id ){
-		return dataDAO.findById(id);
+	public TAuthorityModule browsePOJOById( long id ){
+		return dataDAO.findById( new Long(id).intValue() );
 	}
 	public TAuthorityModule browsePOJOById( String id ){
 		return dataDAO.findById(new Integer(id).intValue());

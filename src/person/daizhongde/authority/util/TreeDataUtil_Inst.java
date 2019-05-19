@@ -297,7 +297,7 @@ public class TreeDataUtil_Inst {
 							list7, list8,
 							list9, list10);
 					
-					mJEU.setId(m.getNIid());
+					mJEU.setId(new Long(m.getNIid()));
 					mJEU.setText(m.getCIname());
 					
 					mJEU.setState("closed");//机构树太大，关闭所有市公司节点
@@ -312,7 +312,7 @@ public class TreeDataUtil_Inst {
 				} else{
 //					System.out.println(m.getCIname()+" is leaf ");
 					JEasyUI_CBT_Leaf mJEU_L = new JEasyUI_CBT_Leaf();
-					mJEU_L.setId(m.getNIid());
+					mJEU_L.setId( new Long(m.getNIid())  );
 					mJEU_L.setText(m.getCIname());
 					mJEU_L.setState( "open" );
 					
@@ -341,14 +341,14 @@ public class TreeDataUtil_Inst {
 //			if(m.getTAuthorityInst().getNIid().getNIid().compareTo( parentM.getNIid() ) == 0){
 			if ( !new Boolean(m.getCIleaf()).booleanValue() ) {// not leaf
 				JEasyUI_CBT mJEU = new JEasyUI_CBT();
-				mJEU.setId(m.getNIid());
+				mJEU.setId(new Long(m.getNIid()));
 				mJEU.setText(m.getCIname());
 				mJEU.setState("closed");
 				dataList.add( mJEU );
 				
 			} else{
 				JEasyUI_CBT_Leaf mJEU_L = new JEasyUI_CBT_Leaf();
-				mJEU_L.setId(m.getNIid());
+				mJEU_L.setId( new Long(m.getNIid()) );
 				mJEU_L.setText(m.getCIname());
 				mJEU_L.setState( "open" );
 				dataList.add( mJEU_L );

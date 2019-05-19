@@ -321,7 +321,7 @@ public class TreeDataUtil_Module {
 							list7, list8,
 							list9, list10);
 					
-					mJEU.setId(m.getNMid());
+					mJEU.setId(new Long(m.getNMid()));
 					mJEU.setText(m.getCMname());
 					if(nextList.size()==0){
 						mJEU.setState("closed");
@@ -334,7 +334,7 @@ public class TreeDataUtil_Module {
 				} else{
 //					System.out.println(m.getCMname()+" is leaf ");
 					JEasyUI_CBT_Leaf mJEU_L = new JEasyUI_CBT_Leaf();
-					mJEU_L.setId(m.getNMid());
+					mJEU_L.setId( new Long(m.getNMid()) );
 					mJEU_L.setText(m.getCMname());
 					mJEU_L.setState( null==m.getCMexpanded() || m.getCMexpanded().trim().equalsIgnoreCase("true") ? "open" : "closed" );//add by daizhongde,date:2013/10/12
 					mJEU_L.setIconCls(m.getCMiconcls());
@@ -363,7 +363,7 @@ public class TreeDataUtil_Module {
 //			if(m.getNMparent().getNMid().compareTo( parentM.getNMid() ) == 0){
 			if ( !new Boolean(m.getCMleaf()).booleanValue() ) {// not leaf
 				JEasyUI_CBT mJEU = new JEasyUI_CBT();
-				mJEU.setId(m.getNMid());
+				mJEU.setId(new Long(m.getNMid()));
 				mJEU.setText(m.getCMname());
 				mJEU.setState("closed");
 //				mJEU.setState( m.getCMexpanded().trim().equalsIgnoreCase("true") ? "open" : "closed" );//add by daizhongde,date:2013/10/12
@@ -372,7 +372,7 @@ public class TreeDataUtil_Module {
 				
 			} else{
 				JEasyUI_CBT_Leaf mJEU_L = new JEasyUI_CBT_Leaf();
-				mJEU_L.setId(m.getNMid());
+				mJEU_L.setId( new Long(m.getNMid()));
 				mJEU_L.setText(m.getCMname());
 				mJEU_L.setState( null==m.getCMexpanded()||m.getCMexpanded().trim().equalsIgnoreCase("true") ? "open" : "closed" );//add by daizhongde,date:2013/10/12
 				mJEU_L.setIconCls(m.getCMiconcls());

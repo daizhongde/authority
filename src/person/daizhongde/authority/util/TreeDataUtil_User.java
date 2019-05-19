@@ -46,7 +46,7 @@ public class TreeDataUtil_User {
 //			if(m.getTAuthorityUser().getNIid().getNIid().compareTo( parentM.getNIid() ) == 0){
 			if ( m.getFollowerNum() != 0 ) {// not leaf
 				JEasyUI_CBT mJEU = new JEasyUI_CBT();
-				mJEU.setId( m.getNUid() );
+				mJEU.setId( new Long(m.getNUid()) );
 				mJEU.setText( m.getTAuthorityInst().getCIname() +"-" + m.getCUname()+ "("+m.getFollowerNum()+")" );
 				mJEU.setState("closed");
 				dataList.add( mJEU );

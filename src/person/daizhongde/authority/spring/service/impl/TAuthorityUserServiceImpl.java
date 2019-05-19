@@ -42,7 +42,7 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 	
 	private TreeDataUtil_User mdUtil = new TreeDataUtil_User();
 	
-	public void updateLogState( String state, Integer N_UID, String ip ){
+	public void updateLogState( String state, Long N_UID, String ip ){
 		if("0".equalsIgnoreCase(state)){
 			dataDAO.updateLogState20( state, N_UID );
 		}else{
@@ -51,8 +51,8 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 //		dataDAO.updateLogState( state, N_UID );
 	};
 	
-	public TAuthorityUser findById( int id ){
-		return dataDAO.findById( new Integer(id) );
+	public TAuthorityUser findById( Long id ){
+		return dataDAO.findById( new Long(id) );
 	}
 	public TAuthorityUser findByLogname( String logname ){
 		List list = dataDAO.findByCUlogname( logname );
@@ -81,8 +81,8 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 		
 	}
 	public String getCip(SQLAssembleQ asQ){ 
-		
-		return dataDAO.sqlQueryfindaValueByMap( asQ.getSQL(), asQ.getMap() ).toString();
+		Object cip = dataDAO.sqlQueryfindaValueByMap( asQ.getSQL(), asQ.getMap() );
+		return null==cip?"":String.valueOf(cip);
 		
 	}
 	public String getCBBDataInArray_Id(String jdata){
@@ -101,7 +101,7 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 		return JSONArray.fromObject(dataDAO.sqlQuerylistAllRetArrayByMap( sqlA.getSQL(), sqlA.getMap() )).toString();
 	}
 	@SuppressWarnings("unchecked")
-	public String getData_JEasyUI_CBT_Async( Integer moduleid, boolean WithRoot ){
+	public String getData_JEasyUI_CBT_Async( Long moduleid, boolean WithRoot ){
 		if(WithRoot)
 		{
 			return getData_JEasyUI_CBT_AsyncWithRoot(moduleid);
@@ -113,7 +113,7 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 	}
 	
 	
-	public String getData_JEasyUI_CBT_AsyncWithRoot( Integer moduleid ){
+	public String getData_JEasyUI_CBT_AsyncWithRoot( Long moduleid ){
 		List dataList = new ArrayList();//Root's children
 
 		List<TAuthorityUser> rootModules = dataDAO.findAllBoss();
@@ -129,7 +129,7 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 	 * @param moduleid
 	 * @return
 	 */
-	public String getData_JEasyUI_CBT_AsyncNoRoot( Integer moduleid ) {
+	public String getData_JEasyUI_CBT_AsyncNoRoot( Long moduleid ) {
 		List dataList = new ArrayList();//Root's children
 		
 		List moduleList = dataDAO.findChildrenNoRecursive( moduleid );//module's children
@@ -300,7 +300,7 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 		);
 		pojo.setCUsex(String.valueOf(map.get("sex")) );
 		pojo.setEmployeeNumber( String.valueOf(map.get("employee_number")) );
-		pojo.setSupervisorId( Integer.valueOf(map.get("supervisor_id").toString()) );
+		pojo.setSupervisorId( Long.valueOf(map.get("supervisor_id").toString()) );
 		
 		pojo.setCUphone(String.valueOf(map.get("phone")) );
 		pojo.setCUemail(String.valueOf(map.get("email")) );
@@ -365,7 +365,7 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 		String oldPwd = cond.get("oldPwd").toString();
 		cond.remove("oldPwd");
 
-		TAuthorityUser user = dataDAO.findById( jsonObject.getJSONObject("condition").getInt("id") );
+		TAuthorityUser user = dataDAO.findById( jsonObject.getJSONObject("condition").getLong("id") );
 		
 		if(pwdUtil.check( oldPwd, user.getCUpassword() ) ) 
 		{
@@ -472,12 +472,12 @@ public class TAuthorityUserServiceImpl implements TAuthorityUserService {
 		
 		return (TAuthorityUser)dataDAO.listAllByMap( "from TAuthorityUser t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityUser browsePOJOById(int id) {
-		return dataDAO.findById( id );
+	public TAuthorityUser browsePOJOById(long id) {
+		return dataDAO.findById( new Long(id)  );
 	}
 	
 	public TAuthorityUser browsePOJOById(String id) {
-		return dataDAO.findById( Integer.valueOf(id).intValue() );
+		return dataDAO.findById( Long.valueOf(id) );
 	}
 	/* (non-Javadoc)
 	 * @see person.daizhongde.authority.spring.service.impl.TAuthorityUserService#delete(java.lang.String)

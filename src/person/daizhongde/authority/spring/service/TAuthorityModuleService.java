@@ -187,13 +187,13 @@ public interface TAuthorityModuleService  extends BaseService {
 	 * @param userId user id
 	 * @return
 	 */
-	public abstract String getData_GubuSoft_Tree(Integer userId);
+	public abstract String getData_GubuSoft_Tree(Long userId);
 	/**
 	 * query special user's menu tree 
 	 * @param userId user id
 	 * @return
 	 */
-	public abstract String getData_GubuSoft_Tree(Integer userId, String logname);
+	public abstract String getData_GubuSoft_Tree(Long userId, String logname);
 	
 	/**
 	 * Generate menuitem jsonarray for YUI2

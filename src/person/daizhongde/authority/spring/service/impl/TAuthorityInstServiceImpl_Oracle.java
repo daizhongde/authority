@@ -396,7 +396,7 @@ public class TAuthorityInstServiceImpl_Oracle implements TAuthorityInstService {
 		
 		JEasyUI_CBT mJEU = new JEasyUI_CBT();
 
-		mJEU.setId(rootModule.getNIid());
+		mJEU.setId(new Long(rootModule.getNIid()));
 		mJEU.setText(rootModule.getCIname());
 		
 		if(dataList2.size()==0){
@@ -511,7 +511,7 @@ public class TAuthorityInstServiceImpl_Oracle implements TAuthorityInstService {
 		
 		JEasyUI_CBT mJEU = new JEasyUI_CBT();
 		
-		mJEU.setId(rootModule.getNIid());
+		mJEU.setId(new Long(rootModule.getNIid()));
 		mJEU.setText(rootModule.getCIname());
 		
 		if(dataList.size()==0){
@@ -622,7 +622,7 @@ public class TAuthorityInstServiceImpl_Oracle implements TAuthorityInstService {
 		
 		JEasyUI_CBT mJEU = new JEasyUI_CBT();
 
-		mJEU.setId(rootModule.getNIid());
+		mJEU.setId(new Long(rootModule.getNIid()));
 		mJEU.setText(rootModule.getCIname());
 		
 		if(dataList2.size()==0){
@@ -1281,8 +1281,8 @@ public class TAuthorityInstServiceImpl_Oracle implements TAuthorityInstService {
 		
 		return (TAuthorityInst)dataDAO.listAllByMap( "from TAuthorityInst t1 where "+hqlA.getWhereBackHQL(), hqlA.getMap() ).get(0);
 	}
-	public TAuthorityInst browsePOJOById(int id) {
-		return dataDAO.findById( new Integer(id) );
+	public TAuthorityInst browsePOJOById(long id) {
+		return dataDAO.findById( new Long(id).intValue() );
 	}
 	public TAuthorityInst browsePOJOById(String id) {
 		return dataDAO.findById( new Integer(id) );

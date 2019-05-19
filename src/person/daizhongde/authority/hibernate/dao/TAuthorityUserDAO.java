@@ -27,18 +27,18 @@ public interface TAuthorityUserDAO extends SpringHibernateDao {
 	public static final String _CUONS = "CUons";
 	
 	public abstract List<TAuthorityUser> findAllBoss();
-	public abstract List findChildrenNoRecursive( Integer parentId );
+	public abstract List findChildrenNoRecursive( Long parentId );
 	
 	public abstract long getOnlineCount();
-	public abstract void updateLogState( String state, Integer N_UID );
-	public abstract void updateLogState20( String state, Integer N_UID );
-	public abstract void updateLogState21( String state, Integer N_UID, String ip );
+	public abstract void updateLogState( String state, Long N_UID );
+	public abstract void updateLogState20( String state, Long N_UID );
+	public abstract void updateLogState21( String state, Long N_UID, String ip );
 	
 	public abstract void save(TAuthorityUser transientInstance);
 
 	public abstract void delete(TAuthorityUser persistentInstance);
 
-	public abstract TAuthorityUser findById(java.lang.Integer id);
+	public abstract TAuthorityUser findById(java.lang.Long id);
 
 	public abstract List findByExample(TAuthorityUser instance);
 

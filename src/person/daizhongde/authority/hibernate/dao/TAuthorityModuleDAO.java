@@ -65,7 +65,7 @@ public interface TAuthorityModuleDAO extends SpringHibernateDao{
 	 * @param userid
 	 * @return
 	 */
-	public abstract List findByUserId(Integer userId);
+	public abstract List findByUserId(Long userId);
 	
 	public abstract List findChildrenRecursive( Integer parentId );
 	/**

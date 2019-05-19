@@ -59,7 +59,7 @@ public class BaseAction extends ActionSupport implements Action{
 	/** 警告信息 */
 	protected String error;
 	/** 用户ID */
-	private Integer userId;
+	private Long userId;
 	/** dept. ID */
 	private Integer deptId;;
 	/** inst. ID */
@@ -71,12 +71,12 @@ public class BaseAction extends ActionSupport implements Action{
 	/** 地址 */
 	protected String remoteAddr;
 
-	public Integer getUserId() {
+	public Long getUserId() {
 		TAuthorityUser user = (TAuthorityUser)getSession(false).getAttribute( SessionConstants.LOGIN_USER );
 		return user.getNUid();
 	}
 
-	public void setUserId(Integer userId) {
+	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
 	

@@ -43,7 +43,7 @@ public class TAuthorityUserDAOImpl extends SpringHibernateDaoSupport implements 
 			throw re;
 		}
 	}
-	public List findChildrenNoRecursive( Integer parentId )
+	public List findChildrenNoRecursive( Long parentId )
 	{
 		log.debug("findChildren......");
 		String queryString = "from TAuthorityUser m " +
@@ -59,13 +59,13 @@ public class TAuthorityUserDAOImpl extends SpringHibernateDaoSupport implements 
 		String queryString = "select count(*) from TAuthorityUser as model where model.CLogins = ?";
 		return new Long(getHibernateTemplate().find(queryString, "1" ).get(0).toString()).longValue();
 	}
-	public void updateLogState( String state, Integer N_UID ){
+	public void updateLogState( String state, Long N_UID ){
 		this.sqlQueryExeU( "update t_authority_user set C_LOGINS= '"+state+"' where N_UID="+N_UID );
 	};
-	public void updateLogState20( String state, Integer N_UID ){
+	public void updateLogState20( String state, Long N_UID ){
 		this.sqlQueryExeU( "update t_authority_user set C_LOGINS= '"+state+"', C_LOGOUTT=now() where N_UID="+N_UID );
 	};
-	public void updateLogState21( String state, Integer N_UID, String ip ){
+	public void updateLogState21( String state, Long N_UID, String ip ){
 		this.sqlQueryExeU( "update t_authority_user set C_LOGINS= '"+state+"', C_LOGINIP ='"+ip+"',C_LOGINT=now() where N_UID="+N_UID );
 	};
 	public void save(TAuthorityUser transientInstance) {
@@ -90,7 +90,7 @@ public class TAuthorityUserDAOImpl extends SpringHibernateDaoSupport implements 
 		}
 	}
 
-	public TAuthorityUser findById(java.lang.Integer id) {
+	public TAuthorityUser findById(java.lang.Long id) {
 		log.debug("getting TAuthorityUser instance with id: " + id);
 		try {
 			TAuthorityUser instance = (TAuthorityUser) getHibernateTemplate()

@@ -57,7 +57,7 @@ public class TAuthorityModuleDAOImpl extends SpringHibernateDaoSupport implement
 			throw re;
 		}
 	}
-	public List<TAuthorityModule> findByUserId(Integer userId){
+	public List<TAuthorityModule> findByUserId(Long userId){
 		log.debug("findByUserId, find special user's TAuthorityModule instances");
 		
 		Map map = new HashMap(1);

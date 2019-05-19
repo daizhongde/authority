@@ -26,5 +26,5 @@ public interface TAuthorityRmrelationService extends BaseService{
 	 * @param userId
 	 * @return
 	 */
-	public abstract List findUserButton4tb(Integer moduleId, Integer userId  );
+	public abstract List findUserButton4tb(Integer moduleId, Long userId  );
 }
