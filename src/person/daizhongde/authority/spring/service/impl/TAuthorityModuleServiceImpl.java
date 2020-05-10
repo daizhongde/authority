@@ -1316,7 +1316,7 @@ public class TAuthorityModuleServiceImpl implements TAuthorityModuleService {
 	
 		if(level0ModuleList.size() == 0){
 			TAuthorityModule rootModule =new TAuthorityModule();
-			rootModule.setNMparent(new Integer(null));
+			rootModule.setNMparent(new Integer(0));
 			rootModule.setNMid(1);
 			rootModule.setCMname("新一代集邮系统");
 			rootModule.setCMpath("");

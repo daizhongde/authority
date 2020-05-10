@@ -5,10 +5,15 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import person.daizhongde.authority.constant.SessionConstants;
 import person.daizhongde.authority.hibernate.pojo.TAuthorityUser;
 import person.daizhongde.authority.spring.service.TAuthorityUserService;
 import person.daizhongde.authority.struts2.action.BaseAction;
-
+import person.daizhongde.virtue.codec.PasswordUtil;
 import net.sf.json.JSONObject;
 
 /**
@@ -39,12 +44,9 @@ public class TAuthorityUserCURDAction extends BaseAction {
 	protected Object[] arr;
 	protected TAuthorityUser pojo;
 	protected TAuthorityUserService dataService;
+	
+	private PasswordUtil  pwdUtil;
 
-//	public void validate() {
-//		addFieldError("jdata", getText("jdata.required"));
-//		addFieldError("jdata", "you must input jdata!");
-//		System.out.println(result);
-//	}
 	/**
 	 * 新增用户初始化
 	 * @return
@@ -144,6 +146,7 @@ public class TAuthorityUserCURDAction extends BaseAction {
 			json.put("condition", cond);
 						
 			i = dataService.modifyPWD( json.toString() );
+
 		}catch(Exception e){
 			e.printStackTrace();
 			Throwable e2 = e;
@@ -189,6 +192,12 @@ public class TAuthorityUserCURDAction extends BaseAction {
 			json.put("condition", cond);
 			
 			i = dataService.modify(json.toString());
+			
+			/* 修改公司邮箱密码正确后及时更新session中的用户信息，可以不用重新登陆就可发邮件 */
+			HttpServletRequest request = ServletActionContext.getRequest();
+			TAuthorityUser user = (TAuthorityUser)getSession(false).getAttribute( SessionConstants.LOGIN_USER );
+			user.setCUcip( reve );
+			request.getSession().setAttribute( SessionConstants.LOGIN_USER, user);
 		}catch(Exception e){
 			e.printStackTrace();
 			Throwable e2 = e;
@@ -280,6 +289,9 @@ public class TAuthorityUserCURDAction extends BaseAction {
 	 */
 	public TAuthorityUser getPojo() {
 		return pojo;
+	}
+	public void setPwdUtil(PasswordUtil pwdUtil) {
+		this.pwdUtil = pwdUtil;
 	}
 	public void setDataService(TAuthorityUserService dataService) {
 		this.dataService = dataService;
